@@ -1,0 +1,141 @@
+baseURL: https://ahmt.me
+languageCode: en-us
+defaultContentLanguage: en
+title: 'Ahmet Altindis'
+theme: "ahmt-me-cupper"
+enableGitInfo: true
+
+languages:
+  en:
+    languageName: English
+    weight: 1
+    contentDir: content/en
+    menu:
+      nav:
+        - identifier: home
+          name: Hello 👋
+          url: /
+          weight: 1
+        - identifier: posts
+          name: Posts
+          url: /posts/
+          weight: 2
+        - identifier: dict
+          name: Dictionary
+          url: /dict/
+          weight: 3
+        - identifier: til
+          name: Today-I-Learned
+          url: /til/
+          weight: 4
+        - identifier: photos
+          name: Photographs
+          url: /photos/
+          weight: 5
+        - identifier: links
+          name: Bookmarks
+          url: /links/
+          weight: 6
+        - identifier: tags
+          name: Tags
+          url: /tags/
+          weight: 7
+        - identifier: rss
+          name: RSS
+          url: /index.xml
+          weight: 8
+  tr:
+    languageName: Türkçe
+    languageCode: tr-TR
+    weight: 2
+    contentDir: content/tr
+    menu:
+      nav:
+        - identifier: home
+          name: Merhaba 👋
+          url: /
+          weight: 1
+        - identifier: posts
+          name: Yazılar
+          url: /yazilar/
+          weight: 2
+        - identifier: dict
+          name: Sözlük
+          url: /sozluk/
+          weight: 3
+        - identifier: til
+          name: Bugün Öğrendim
+          url: /ogrendim/
+          weight: 4
+        - identifier: photos
+          name: Fotoğraflar
+          url: /fotolar/
+          weight: 5
+        - identifier: links
+          name: Yer İmleri
+          url: /imler/
+          weight: 6
+        - identifier: tags
+          name: Etiketler
+          url: /etiketler/
+          weight: 7
+        - identifier: rss
+          name: RSS
+          url: /index.xml
+          weight: 8
+    permalinks:
+      posts: "yazilar/:filename/"
+      dict: "sozluk/:filename/"
+      til: "ogrendim/:filename/"
+      photos: "fotolar/:filename/"
+      links: "imler/:filename/"
+      tags: "etiketler/:slug/"
+
+taxonomies:
+  tag: tags
+
+imaging:
+  quality: 99
+
+params:
+  description:
+  homeMetaContent: Ahmet Altindis - Maker, hacker, coder, learner, reader, photographer.
+  footer:
+  # For more date layouts see https://gohugo.io/functions/dateformat/#datetime-formatting-layouts
+  dateLayout: ":date_long"
+  katex: false
+  hideHeaderLinks: false
+  search: true
+  moveFooterToHeader: false
+  logoAlt: ahmt.me
+
+markup:
+  defaultMarkdownHandler: goldmark
+  goldmark:
+    extensions:
+      definitionList: true
+      footnote: true
+      linkify: true
+      strikethrough: true
+      table: true
+      taskList: true
+      typographer: true
+    parser:
+      attribute: true
+      autoHeadingID: true
+    renderer:
+      hardWraps: false
+      unsafe: true
+      xHTML: false
+  highlight:
+    codeFences: false
+    hl_Lines: ""
+    lineNoStart: 1
+    lineNos: false
+    lineNumbersInTable: true
+    noClasses: true
+    style: monokai
+    tabWidth: 4
+  tableOfContents:
+    endLevel: 6
+    startLevel: 2

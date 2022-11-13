@@ -1,0 +1,4 @@
+---
+title: Sözlük
+url: sozluk
+---
