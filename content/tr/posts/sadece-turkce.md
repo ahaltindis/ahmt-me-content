@@ -1,6 +1,6 @@
 ---
 title: "Sadece Türkçe"
-date: 2022-11-12T15:36:09-06:00
+date: 2022-11-13T13:57:36Z
 tags: [turkce, deneme]
 toc: false
 ---
