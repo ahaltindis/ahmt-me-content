@@ -11,6 +11,6 @@ Ben Ahmet. Yazılım geliştirme mühendisi olarak Amazon'un İngiltere/Cambridg
 
 İnternetin bu ücra köşesinde, daha kolay ve keyifli içerik oluşturabilmem için optimize edilmiş formatlarda içerik oluşturmayı amaçlıyorum. Umarım bu içerikleri siz de faydalı bulursunuz.
 
-İsterseniz bu platformlardan beni takip de edebilirsiniz; [twitter](https://www.twitter.com/ahaltindis), [instagram](https://www.instagram.com/ahaltindis), [github](https://github.com/ahaltindis), [linkedin](https://www.linkedin.com/in/ahmetaltindis/). Ya da direk bu adrese e-posta gönderebilirsiniz:
+İsterseniz bu platformlardan beni takip de edebilirsiniz; [twitter](https://www.twitter.com/ahaltindis) [instagram](https://www.instagram.com/ahaltindis) [github](https://github.com/ahaltindis) [linkedin](https://www.linkedin.com/in/ahmetaltindis/). Ya da direk bu adrese e-posta gönderebilirsiniz:
 
 ```ahaltindis [ at ] gmail.com```

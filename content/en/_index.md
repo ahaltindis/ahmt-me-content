@@ -11,6 +11,6 @@ Outside of work, I enjoy making things or use "things" in ways that they are not
 
 In this very solitary corner of the internet, I try to create content in different formats which mostly optimized for me to produce content easier and fun. I hope you'll find them useful as well.
 
-If you'd like, you can follow me on these platforms; [twitter](https://www.twitter.com/ahaltindis), [instagram](https://www.instagram.com/ahaltindis), [github](https://github.com/ahaltindis), [linkedin](https://www.linkedin.com/in/ahmetaltindis/). You can also just send an e-mail to:
+If you'd like, you can follow me on these platforms; [twitter](https://www.twitter.com/ahaltindis) [instagram](https://www.instagram.com/ahaltindis) [github](https://github.com/ahaltindis) [linkedin](https://www.linkedin.com/in/ahmetaltindis/). You can also just send an e-mail to:
 
 ```ahaltindis [ at ] gmail.com```
