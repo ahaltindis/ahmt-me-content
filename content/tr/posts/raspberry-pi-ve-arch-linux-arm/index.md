@@ -1,7 +1,7 @@
 ---
 title: "Raspberry Pi ve Arch Linux ARM"
 date: 2013-01-22T10:00:00Z
-tags: [archlinux, archlinuxarm, raspberrypi, embedded]
+tags: [archlinux, archlinux-arm, raspberry-pi, embedded]
 ---
 
 Geçen sene Ağustos ayında bir [DIY projesi](http://www.davidhunt.ie/raspberry-pi-in-a-dslr-camera/) sayesinde Raspberry Pi ile tanıştım. O zamandan beri yapılan projeleri takip ediyordum. Nihayet geçtiğimiz günlerde siparişi verdim ve 5 gün içerisinde teslim aldım. İşin açıkçası en az 3 hafta içerisinde teslim almayı bekliyordum, bu kadar erken gelmesi sürpriz oldu.

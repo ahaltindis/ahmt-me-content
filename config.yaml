@@ -3,6 +3,7 @@ languageCode: en-us
 defaultContentLanguage: en
 theme: "ahmt-me-cupper"
 enableGitInfo: true
+paginate: 10
 
 languages:
   en:
@@ -12,6 +13,7 @@ languages:
     title: 'Ahmet Altindis'
     params:
       navTitleText: 'Ahmet Altindis'
+    paginatePath: page
     menu:
       nav:
         - identifier: home
@@ -54,6 +56,7 @@ languages:
     title: 'Ahmet Altındiş'
     params:
       navTitleText: 'Ahmet Altındiş'
+    paginatePath: sayfa
     menu:
       nav:
         - identifier: home

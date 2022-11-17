@@ -1,7 +1,7 @@
 ---
 title: "Raspberry Pi - 2 GB'lik SD’yi Arttırmak"
 date: 2013-04-10T10:00:00Z
-tags: [archlinuxarm, raspberrypi]
+tags: [archlinux-arm, raspberry-pi]
 ---
 Raspberry Pi için hazırlanmış imaj dosyalarında root dizini 2 GB'ye ayarlanmış bir şekilde geliyor. Bu nedenle en az bu boyutta bir kart kullanmak gerekiyor. Daha büyük boyutta SD kullanmak bir sorun çıkarmıyor fakat alanın 2 GB üstündeki kısmı boşa gitmiş oluyor. Bunu kullanabilmek için bir kaç şey yapmak gerekiyor.
 
