@@ -93,7 +93,7 @@ languages:
           weight: 8
     permalinks:
       posts: "yazilar/:filename/"
-      dict: "sozluk/:filename/"
+      dict: "sozluk/:sections[1:]/:filename/"
       til: "ogrendim/:filename/"
       photos: "fotolar/:filename/"
       links: "imler/:filename/"
