@@ -1,0 +1,36 @@
+name: Deploy to S3
+concurrency: ${{ github.workflow }}-${{ github.ref }}
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          submodules: true  # Fetch Hugo themes (true OR recursive)
+          fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1-node16
+        with:
+          aws-access-key-id: ${{ secrets.HUGO_AWS_ACCESS_KEY }}
+          aws-secret-access-key: ${{ secrets.HUGO_AWS_ACCESS_SECRET }}
+          aws-region: ${{ secrets.HUGO_AWS_REGION }}
+          role-to-assume: ${{ secrets.HUGO_AWS_ROLE_ARN }}
+          role-session-name: AhmtMeContentHugoS3Deploy
+          role-duration-seconds: 3600
+      - name: Create Hugo Deployment Config
+        run: ./create_deployment_config_from_cloudformation.sh ${{ secrets.HUGO_AWS_REGION }}
+        shell: bash
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: '0.105.0'
+      - name: Hugo Build
+        run: hugo --minify
+      - name: Hugo Deploy
+        run: hugo deploy --maxDeletes -1
