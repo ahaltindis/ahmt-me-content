@@ -117,6 +117,8 @@ params:
   moveFooterToHeader: false
   logoAlt: ahmt.me
   showLangSwitchAlways: false
+  paginatePosts: false
+  showPostSummaries: false
 
 markup:
   defaultMarkdownHandler: goldmark
