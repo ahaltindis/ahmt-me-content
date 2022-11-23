@@ -112,7 +112,6 @@ params:
   # For more date layouts see https://gohugo.io/functions/dateformat/#datetime-formatting-layouts
   dateLayout: ":date_long"
   katex: false
-  hideHeaderLinks: false
   search: true
   moveFooterToHeader: false
   logoAlt: ahmt.me
