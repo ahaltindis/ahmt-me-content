@@ -1,4 +1,3 @@
-baseURL: https://ahmt.me
 languageCode: en-us
 defaultContentLanguage: en
 theme: "ahmt-me-cupper"
@@ -7,6 +6,7 @@ paginate: 10
 
 languages:
   en:
+    baseURL: https://ahmt.me
     languageName: English
     weight: 1
     contentDir: content/en
@@ -49,6 +49,7 @@ languages:
           url: /index.xml
           weight: 8
   tr:
+    baseURL: https://tr.ahmt.me
     languageName: Türkçe
     languageCode: tr-TR
     weight: 2
@@ -92,7 +93,7 @@ languages:
           url: /index.xml
           weight: 8
     permalinks:
-      posts: "yazilar/:filename/"
+      posts: ":filename/"
       dict: "sozluk/:sections[1:]/:filename/"
       til: "ogrendim/:filename/"
       photos: "fotolar/:filename/"
