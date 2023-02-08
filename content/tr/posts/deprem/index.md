@@ -12,7 +12,7 @@ Allak bullak olmuştu kafam, sonra İstanbul'da kalan eşim ve çocuklarımı d�
 
 Ve *uçtum ama uçuşum radarla izlendi..* Nasıl bir ruh hali, nasıl bir çaresizlikle uçtum hiç bilmiyorum.
 
-Uçağın tekeri yere değer değmez telefonu açtım, ben havadayken, aynı bölgede hemen hemen aynı büyüklükte bir deprem daha olmuş. Hemen ailemi aradım, çok fena sallanmışlar. Çiçekler devrilmiş, avizeler çarpıp birbirine kırılmış ama onlar iyilermiş. Şükür dedim, Allah'ım sana çok şükür. Sınır kontrolünde polis _are you okay_ diye sordu, nasıl olayım dedim içimden. Belli ki yüzüm çok gergin, ilk defa böyle bir soru alıyordum sınır polisinden.
+Uçağın tekeri yere değer değmez telefonu açtım, ben havadayken, aynı bölgede hemen hemen aynı büyüklükte bir deprem daha olmuş. Hemen ailemi aradım, çok fena sallanmışlar. Çiçekler devrilmiş, avizeler çarpıp birbirine kırılmış ama onlar iyilermiş. Şükür dedim, Allah'ım sana çok şükür. Sınır kontrolünde polis "are you okay?" diye sordu, nasıl olayım dedim içimden. Belli ki yüzüm çok gergin, ilk defa böyle bir soru alıyordum sınır polisinden.
 
 Trenle eve giderken belki de olay tüm ciddiyeti ile ilk defa önüme serildi. Deprem bölgelerinden fotoğraflar, videolar düşüyordu önüme. Yardım çığlıkları, çaresizlik had safhada. Herkes bir şeye koşturuyor, kimi arasam ne yapsam bilemedim. Şimdi bir de binlerce kilometre uzaktan, sanki yakın olsam bir şeylere yardımım dokunabilirmiş gibi. Binlerce binanın tuz buz olduğu görüntüler, zorlu hava koşulları, enkazlar enkazlar.
 
