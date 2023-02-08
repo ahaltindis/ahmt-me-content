@@ -1,3 +1,4 @@
+baseURL: https://ahmt.me
 languageCode: en-us
 defaultContentLanguage: en
 theme: "ahmt-me-cupper"
