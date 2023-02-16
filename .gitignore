@@ -1,4 +1,4 @@
 resources
 public
 .DS_Store
-config/_default/deployment.yaml
+config/*/deployment.yaml
