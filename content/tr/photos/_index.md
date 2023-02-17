@@ -1,4 +1,0 @@
----
-title: Fotoğraflar
-url: fotolar
----
