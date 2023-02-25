@@ -109,6 +109,7 @@ imaging:
   quality: 99
 
 params:
+  cdnUrl: https://cdn.ahmt.me
   description:
   homeMetaContent: Ahmet Altindis - Maker, hacker, coder, learner, reader, photographer.
   footer:
