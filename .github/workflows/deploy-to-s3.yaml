@@ -31,6 +31,9 @@ jobs:
         with:
           hugo-version: '0.105.0'
       - name: Hugo Build
-        run: hugo --minify
+        run: hugo
       - name: Hugo Deploy
         run: hugo deploy --maxDeletes -1
+      - name: Invalidate Cloudfront Distributions
+        run: ./invalidate_distributions.sh ${{ secrets.HUGO_AWS_REGION }}
+        shell: bash
