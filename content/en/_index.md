@@ -5,7 +5,7 @@ title: "Hello 👋"
 
 I am Ahmet. I work as a software development engineer at Amazon in Cambridge, UK. I am helping to make Alexa smarter in the Alexa NU (Natural Understanding) department.
 
-Outside of work, I enjoy making things or using "things" in ways that they are not intended (hacking?). I also have been taking [photographs](https://en.ahmt.me/photographs/), mostly with an analog camera, for quite some time.
+Outside of work, I enjoy making things or using "things" in ways that they are not intended (hacking?). I also have been taking [photographs](/photographs/), mostly with an analog camera, for quite some time.
 
 In this very solitary corner of the internet, I try to create content in various formats that are mostly optimized for me to produce them more easily and enjoyably. I hope you'll find something useful or interesting.
 

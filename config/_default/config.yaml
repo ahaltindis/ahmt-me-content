@@ -3,6 +3,8 @@ defaultContentLanguage: en
 theme: "ahmt-me-cupper"
 enableGitInfo: true
 paginate: 10
+social:
+  twitter: ahaltindis
 
 languages:
   en:
