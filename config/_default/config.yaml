@@ -15,6 +15,7 @@ languages:
     title: 'Ahmet Altindis'
     params:
       navTitleText: 'Ahmet Altindis'
+      description: some blog, some photograps, and a bit projects so on.
     paginatePath: page
     menu:
       nav:
@@ -30,18 +31,22 @@ languages:
           name: Photographs
           url: /photographs/
           weight: 3
-        - identifier: dict
-          name: Dictionary
-          url: /dict/
-          weight: 4
-        - identifier: til
-          name: Today-I-Learned
-          url: /til/
-          weight: 5
-        - identifier: links
-          name: Bookmarks
-          url: /links/
-          weight: 6
+        # - identifier: projects
+        #   name: Projects
+        #   url: /projects/
+        #   weight: 4
+        # - identifier: dict
+        #   name: Dictionary
+        #   url: /dict/
+        #   weight: 4
+        # - identifier: til
+        #   name: Today-I-Learned
+        #   url: /til/
+        #   weight: 5
+        # - identifier: links
+        #   name: Bookmarks
+        #   url: /links/
+        #   weight: 6
         - identifier: tags
           name: Tags
           url: /tags/
@@ -61,6 +66,7 @@ languages:
     title: 'Ahmet Altındiş'
     params:
       navTitleText: 'Ahmet Altındiş'
+      description: biraz yazı, biraz fotoğraf, biraz da projeler felan.
     paginatePath: sayfa
     menu:
       nav:
@@ -76,26 +82,30 @@ languages:
           name: Fotoğraflar
           url: /fotograflar/
           weight: 3
-        - identifier: dict
-          name: Sözlük
-          url: /sozluk/
-          weight: 4
-        - identifier: til
-          name: Bugün Öğrendim
-          url: /ogrendim/
-          weight: 5
-        - identifier: links
-          name: Yer İmleri
-          url: /imler/
-          weight: 6
+        # - identifier: projects
+        #   name: Projeler
+        #   url: /projeler/
+        #   weight: 4
+        # - identifier: dict
+        #   name: Sözlük
+        #   url: /sozluk/
+        #   weight: 5
+        # - identifier: til
+        #   name: Bugün Öğrendim
+        #   url: /ogrendim/
+        #   weight: 6
+        # - identifier: links
+        #   name: Yer İmleri
+        #   url: /imler/
+        #   weight: 7
         - identifier: tags
           name: Etiketler
           url: /etiketler/
-          weight: 7
+          weight: 8
         - identifier: rss
           name: RSS
           url: /index.xml
-          weight: 8
+          weight: 9
     permalinks:
       posts: ":filename/"
       dict: "sozluk/:sections[1:]/:filename/"
@@ -112,7 +122,6 @@ imaging:
 
 params:
   cdnUrl: https://cdn.ahmt.me
-  description:
   homeMetaContent: Ahmet Altindis - Maker, hacker, coder, learner, reader, photographer.
   footer:
   # For more date layouts see https://gohugo.io/functions/dateformat/#datetime-formatting-layouts

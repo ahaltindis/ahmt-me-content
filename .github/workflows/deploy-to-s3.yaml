@@ -26,6 +26,9 @@ jobs:
       - name: Create Hugo Deployment Config
         run: ./create_deployment_config_from_cloudformation.sh ${{ secrets.HUGO_AWS_REGION }}
         shell: bash
+      - name: Build CSS with Tailwindcss
+        run: ./build_tailwindcss.sh
+        shell: bash
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:

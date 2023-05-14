@@ -5,7 +5,7 @@ title: "Merhaba 👋"
 
 Ben Ahmet. Yazılım geliştirici olarak Amazon'un Cambridge (İngiltere) ofisinde çalışıyorum. Alexa'yı daha akıllı hale getirmek için Alexa NU (Doğal Anlama) kısmında görev alıyorum.
 
-İş dışında, bir şeyler "icat etmekten" ya da o "şeyleri" amaçları dışında kullanmaktan (hacking?) keyif alırım. Uzun bir süredir [fotoğraf](/fotograflar/) çekiyorum, son bir kaç yıldır da çoğunlukla analog bir makine kullanıyorum.
+İş dışında, bir şeyler "icat etmekten" ya da o "şeyleri" amaçları dışında kullanmaktan (hacking?) keyif alırım. Uzun bir süredir [fotoğraf]({{< relref "photographs" >}}) çekiyorum, son bir kaç yıldır da çoğunlukla analog bir makine kullanıyorum.
 
 İnternetin bu ücra köşesinde, daha kolay ve keyifli içerik oluşturabilmem için optimize edilmiş formatlarda içerik oluşturmayı amaçlıyorum. Umarım bu içerikleri siz de faydalı bulursunuz.
 

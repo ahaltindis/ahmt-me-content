@@ -1,5 +1,5 @@
 <ul>
   {{ range first 5 (where $.Site.RegularPages.ByPublishDate.Reverse "Section" "==" "posts") }}
-  <li>{{ .PublishDate.Format "2006-01-02" }} - <a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+  <li><span style="font-family: sans-serif;">{{ .PublishDate.Format "2006-01-02" }}</span> - <a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
   {{ end }}
 </ul>
