@@ -66,7 +66,7 @@ languages:
     title: 'Ahmet Altındiş'
     params:
       navTitleText: 'Ahmet Altındiş'
-      description: biraz yazı, biraz fotoğraf, biraz da projeler felan.
+      description: biraz yazı, biraz fotoğraf, biraz da projeler falan.
     paginatePath: sayfa
     menu:
       nav:
