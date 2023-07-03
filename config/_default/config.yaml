@@ -39,10 +39,10 @@ languages:
         #   name: Dictionary
         #   url: /dict/
         #   weight: 4
-        # - identifier: til
-        #   name: Today-I-Learned
-        #   url: /til/
-        #   weight: 5
+        - identifier: til
+          name: Today-I-Learned
+          url: /til/
+          weight: 5
         # - identifier: links
         #   name: Bookmarks
         #   url: /links/
@@ -57,6 +57,7 @@ languages:
           weight: 8
     permalinks:
       photographs: "photo-:filename/"
+      til: "til-:filename/"
   tr:
     baseURL: https://tr.ahmt.me
     languageName: Türkçe
@@ -90,10 +91,10 @@ languages:
         #   name: Sözlük
         #   url: /sozluk/
         #   weight: 5
-        # - identifier: til
-        #   name: Bugün Öğrendim
-        #   url: /ogrendim/
-        #   weight: 6
+        - identifier: til
+          name: Bugün Öğrendim
+          url: /bo/
+          weight: 6
         # - identifier: links
         #   name: Yer İmleri
         #   url: /imler/
@@ -109,7 +110,7 @@ languages:
     permalinks:
       posts: ":filename/"
       dict: "sozluk/:sections[1:]/:filename/"
-      til: "ogrendim/:filename/"
+      til: "bo-:filename/"
       photographs: "fotograf-:filename/"
       links: "imler/:filename/"
       tags: "etiketler/:slug/"

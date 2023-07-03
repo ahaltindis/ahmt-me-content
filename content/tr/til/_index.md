@@ -1,4 +1,5 @@
 ---
 title: Bugün Öğrendim
-url: ogrendim
+url: bo
 ---
+Öğrendiklerimi kısa yazılar olarak paylaştığım arşiv.
