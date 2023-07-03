@@ -10,8 +10,8 @@ It seems there are two reasons for this.
 
 The first and probably the obvious reason is that if a command is cached, it will not be executed again. Therefore, there won't be anything to show in the output.
 ```
-=> CACHED [5/8] RUN ls /usr/local/lib/python3.8/site-packages                             0.0s
-=> CACHED [6/8] RUN ls /opt/venv/lib/python3.8/site-packages/pyarrow                      0.0s
+=> CACHED [5/8] RUN ls /usr/local/lib/python3.8/site-packages                   0.0s
+=> CACHED [6/8] RUN ls /opt/venv/lib/python3.8/site-packages/pyarrow            0.0s
 ```
 However, for testing purposes, one might still want to see the command output even if it is cached. In this case, caching can be disabled by passing the `--no-cache` flag to the `docker build` ([source](https://docs.docker.com/engine/reference/commandline/build/#options)) command.
 ```
@@ -22,8 +22,8 @@ docker build --no-cache .
 
 The second reason, which was new to me as well, is that using [BuildKit](https://docs.docker.com/build/buildkit/) automatically hides command outputs once the execution of the command is finished. If the command is fast enough, it may be impossible to catch the response in the console output.
 ```
-=> [5/8] RUN ls /usr/local/lib/python3.8/site-packages                                    0.4s
-=> [6/8] RUN ls /opt/venv/lib/python3.8/site-packages/pyarrow                             0.4s
+=> [5/8] RUN ls /usr/local/lib/python3.8/site-packages                          0.4s
+=> [6/8] RUN ls /opt/venv/lib/python3.8/site-packages/pyarrow                   0.4s
 ```
 
 There are two ways to expand the outputs in this case. The first way is not to use BuildKit, which might not be ideal. It can be disabled by setting the environment variable `DOCKER_BUILDKIT=0` or by modifying the Docker daemon configuration in  `/etc/docker/daemon.json`:
