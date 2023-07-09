@@ -2,6 +2,7 @@ languageCode: en-us
 defaultContentLanguage: en
 theme: "ahmt-me-cupper"
 enableGitInfo: true
+googleAnalytics: G-SDPLW1BSH4
 paginate: 10
 social:
   twitter: ahaltindis
