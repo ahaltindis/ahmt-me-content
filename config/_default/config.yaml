@@ -17,6 +17,7 @@ languages:
     params:
       navTitleText: 'Ahmet Altindis'
       description: some blog, some photograps, and a bit projects so on.
+      homeMetaContent: Ahmet Altindis - Software Engineer. Maker, hacker, coder, learner, reader, photographer.
     paginatePath: page
     menu:
       nav:
@@ -69,6 +70,7 @@ languages:
     params:
       navTitleText: 'Ahmet Altındiş'
       description: biraz yazı, biraz fotoğraf, biraz da projeler falan.
+      homeMetaContent: Ahmet Altındiş - Yazılım geliştirici. Biraz yazı, biraz fotoğraf, biraz da projeler falan.
     paginatePath: sayfa
     menu:
       nav:
@@ -124,7 +126,6 @@ imaging:
 
 params:
   cdnUrl: https://cdn.ahmt.me
-  homeMetaContent: Ahmet Altindis - Maker, hacker, coder, learner, reader, photographer.
   footer:
   # For more date layouts see https://gohugo.io/functions/dateformat/#datetime-formatting-layouts
   dateLayout: ":date_long"
@@ -135,6 +136,7 @@ params:
   showLangSwitchAlways: false
   paginatePosts: false
   showPostSummaries: false
+  enableRobotsTXT: true
 
 markup:
   defaultMarkdownHandler: goldmark
