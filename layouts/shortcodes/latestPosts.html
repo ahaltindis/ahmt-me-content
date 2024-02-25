@@ -1,5 +1,27 @@
+{{ $all_posts := where $.Site.RegularPages "Section" "==" "posts" }}
+{{ range $.Site.Home.Translations }}
+  {{ $all_posts = $all_posts | lang.Merge (where .Site.RegularPages "Section" "==" "posts") }}
+{{ end }}
+
 <ul>
-  {{ range first 5 (where $.Site.RegularPages.ByPublishDate.Reverse "Section" "==" "posts") }}
-  <li><span style="font-family: sans-serif;">{{ .PublishDate.Format "2006-01-02" }}</span> - <a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+  {{ range first 5 $all_posts.ByPublishDate.Reverse }}
+    {{ $is_other_lang := false }}
+    {{ $post_link := .RelPermalink }}
+    {{ $title_a_prop := "" }}
+    {{ $title_a_img := "" }}
+    {{ if ne .Language $.Site.Language }}
+      {{ $is_other_lang = true }}
+      {{ $post_link = .Permalink }}
+      {{ $title_a_prop = `target="_blank" rel="noopener"` }}
+      {{ $ext_img := "images/icon-arrow-external.svg" | relURL }}
+      {{ $title_a_img = print `<img class="absolute h-3 w-3 mt-2 ml-[3px] inline-block" src="` $ext_img `" />` }}
+    {{ end }}
+  <li>
+      <span style="font-family: sans-serif;">{{ .PublishDate.Format "2006-01-02" }}</span>
+      <span> - </span>
+      {{ if $is_other_lang }}[{{ .Language }}]{{ end }}
+      <a href="{{ $post_link }}" title="{{ .Title }}" {{ $title_a_prop | safeHTMLAttr }}>{{ .Title }}</a>
+      {{ $title_a_img | safeHTML }}
+  </li>
   {{ end }}
 </ul>

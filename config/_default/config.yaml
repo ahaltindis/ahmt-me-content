@@ -2,7 +2,6 @@ languageCode: en-us
 defaultContentLanguage: en
 theme: "ahmt-me-cupper"
 enableGitInfo: true
-paginate: 10
 social:
   twitter: ahaltindis
 
@@ -133,7 +132,6 @@ params:
   moveFooterToHeader: false
   logoAlt: ahmt.me
   showLangSwitchAlways: false
-  paginatePosts: false
   showPostSummaries: false
   enableRobotsTXT: true
 
