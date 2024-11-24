@@ -16,7 +16,8 @@ languages:
       navTitleText: 'Ahmet Altindis'
       description: some blog, some photograps, and a bit projects so on.
       homeMetaContent: Ahmet Altindis - Software Engineer. Maker, hacker, coder, learner, reader, photographer.
-    paginatePath: page
+    pagination:
+      path: page
     menu:
       nav:
         - identifier: home
@@ -69,7 +70,8 @@ languages:
       navTitleText: 'Ahmet Altındiş'
       description: biraz yazı, biraz fotoğraf, biraz da projeler falan.
       homeMetaContent: Ahmet Altındiş - Yazılım geliştirici. Biraz yazı, biraz fotoğraf, biraz da projeler falan.
-    paginatePath: sayfa
+    pagination:
+      path: sayfa
     menu:
       nav:
         - identifier: home
@@ -165,3 +167,12 @@ markup:
   tableOfContents:
     endLevel: 6
     startLevel: 2
+
+build:
+  buildStats:
+    enable: true
+  cachebusters:
+    - source: hugo_stats.json
+      target: css
+    - source: tailwind.config.js
+      target: css
