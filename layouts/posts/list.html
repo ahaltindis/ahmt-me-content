@@ -1,0 +1,55 @@
+{{ define "main" }}
+<main id="main">
+  {{ $all_posts := .Pages }}
+  {{ range .Site.Home.Translations }}
+    {{ $all_posts = $all_posts | lang.Merge (where .Site.RegularPages "Section" "==" "posts") }}
+  {{ end }}
+
+  <h1 class="page-heading mb-6">{{ .Title }}</h1>
+  <ul>
+    {{ range $all_posts }}
+      {{ $is_other_lang := false }}
+      {{ $post_link := .RelPermalink }}
+      {{ $li_class := "mb-4" }}
+      {{ $title_a_prop := "" }}
+      {{ $title_a_img := "" }}
+      {{ if ne .Language $.Site.Language }}
+        {{ $is_other_lang = true }}
+        {{ $post_link = .Permalink }}
+        {{ $li_class = print $li_class " opacity-60" }}
+        {{ $title_a_prop = `target="_blank" rel="noopener"` }}
+        {{ $ext_img := "images/icon-arrow-external.svg" | relURL }}
+        {{ $title_a_img = print `<img class="absolute max-h-[12px] max-w-[12px] mt-1 ml-[1px] inline-block" src="` $ext_img `" />` }}
+      {{ end }}
+    <li class="{{ $li_class }}">
+      <div class="flex">
+        <div class="font-mono leading-8 text-gray-700 min-w-max">
+            <span>{{ .PublishDate.Format "2006-01-02" }}</span>
+        </div>
+        <div class="ml-5">
+            {{ if $is_other_lang }}[{{ .Language }}]{{ end }}
+            <a href="{{ $post_link }}" class="border-b-[1px] border-b-black" title="{{ .Title }}" {{ $title_a_prop | safeHTMLAttr }}>
+                <span class="font-bold">{{ .Title }}</span>{{ $title_a_img | safeHTML }}
+            </a>
+        </div>
+      </div>
+      {{ if $.Site.Params.showPostSummaries }}
+        <p class="border-l-4 pl-4 mt-1">
+          {{ .Summary }}
+        </p>
+        {{ if .Truncated }}
+        <span class="inline-block w-full text-right mb-2">
+          <a href="{{ $post_link }}">
+            <span>{{ T "read_more" }}</span>
+            <svg class="w-4 h-4 inline" stroke-width="3">
+              <use href="#arrow-right" />
+            </svg>
+          </a>
+        </span>
+        {{ end }}
+      {{ end }}
+    </li>
+    {{ end }}
+  </ul>
+</main>
+{{ end }}

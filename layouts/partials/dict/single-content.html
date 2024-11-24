@@ -1,0 +1,5 @@
+<div class="dict-content">
+  {{ .Scratch.Set "Title" .Parent.Title }}
+  {{ partial "dict/entry.html" . }}
+  <a class="dict-all-entries" href="{{ .Parent.RelPermalink }}">{{ T "dict_all_entries" }}</a>
+</div>

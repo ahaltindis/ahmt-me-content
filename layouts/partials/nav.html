@@ -1,0 +1,27 @@
+<nav class="flex-auto mx-auto md:mx-0 overflow-auto md:mt-7 md:min-w-max {{ if eq (.Scratch.Get "hideNavOnSmall") true }}display-none md:display-unset{{ end }}" role="navigation">
+  {{ $current := . }}
+  <ul class="text-center md:text-left">
+  {{ range .Site.Menus.nav }}
+    {{ $active := or ($current.IsMenuCurrent "nav" .) ($current.HasMenuCurrent "nav" .) }}
+    {{ $active = or $active (eq .Name $current.Title) }}
+    {{ $active = or $active (and (eq .Identifier "posts") (eq $current.Section "posts")) }}
+    {{ $active = or $active (and (eq .Identifier "projects") (eq $current.Section "projects")) }}
+    {{ $active = or $active (and (eq .Identifier "photographs") (eq $current.Section "photographs")) }}
+    {{ $active = or $active (and (eq .Identifier "til") (eq $current.Section "til")) }}
+    {{ $active = or $active (and (eq .Identifier "dict") (eq $current.Section "dict")) }}
+    {{ $active = or $active (and (eq .Identifier "tags") (eq $current.Section "tags")) }}
+    <li class="inline-block md:block list-none leading-5 py-2 pr-1 md:px-4 mr-2 mt-2 md:mr-0
+        {{ if $active }}
+        text-red border-b-4 border-b-red
+        md:bg-black md:text-white md:dark:bg-half-white md:dark:text-black md:clip-polygon md:border-none
+        {{ end }}">
+      <a href="{{ .URL | relLangURL }}" class="flex flex-nowrap items-baseline font-bold {{ if $active }}md:hover:text-white md:hover:dark:text-black{{ end }}">
+        <svg class="h-3 w-3 mr-1 stroke-[4] display-none md:display-unset" aria-hidden="true" focusable="false">
+          <use href="#arrow-right"></use>
+        </svg>
+        <span class="ml-1">{{ .Name }}</span>
+      </a>
+    </li>
+  {{ end }}
+  </ul>
+</nav>

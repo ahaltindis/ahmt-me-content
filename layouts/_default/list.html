@@ -1,0 +1,25 @@
+{{ define "main" }}
+<main id="main">
+  <h1 class="page-heading">{{ .Title }}</h1>
+  {{ if site.Params.search }}
+  <input id="search" type="text" placeholder="{{ T "search_placeholder" }}" aria-label="{{ T "search_aria_label" }}" />
+  {{ end }}
+  <ul class="mt-8">
+    {{ range .Pages.ByPublishDate.Reverse }}
+    <li class="mb-5">
+      <div class="flex">
+        <div class="font-mono text-base leading-8 text-gray-700 min-w-max"><span>{{ .PublishDate.Format "2006-01-02" }}</span></div>
+        <div class="ml-5"><a class="border-b-[1px] border-b-black" href="{{ .RelPermalink }}"><strong>{{ .Title }}</strong></a></div>
+      </div>
+    </li>
+    {{ end }}
+  </ul>
+</main>
+{{ if site.Params.search }}
+{{ $searchJs := resources.Get "js/search.js" | fingerprint }}
+<script src="{{ $searchJs.RelPermalink }}"></script>
+{{ $searchCss := resources.Get "css/search.css" | fingerprint }}
+<link rel="stylesheet" href="{{ $searchCss.RelPermalink }}"></link>
+{{ end }}
+
+{{ end }}

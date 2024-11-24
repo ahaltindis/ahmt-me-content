@@ -1,0 +1,9 @@
+{{ $is_external := strings.HasPrefix .Destination "http" }}
+{{ $title_a_prop := "" }}
+{{ $title_a_img := "" }}
+{{ if $is_external }}
+  {{ $title_a_prop = `class="mr-3" target="_blank" rel="noopener"` }}
+  {{ $ext_img := "images/icon-arrow-external.svg" | relURL }}
+  {{ $title_a_img = print `<img class="absolute max-h-[10px] max-w-[10px] mt-2 ml-[1px] inline-block" src="` $ext_img `" />` }}
+{{ end }}
+<a href="{{ .Destination | safeURL }}" title="{{ .Title }}" {{ $title_a_prop | safeHTMLAttr }}>{{ .Text | safeHTML }}{{ $title_a_img | safeHTML }}</a>

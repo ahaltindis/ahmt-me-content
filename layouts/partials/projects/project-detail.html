@@ -1,0 +1,31 @@
+{{ $parent := . }}
+{{ $updates := .Pages.ByPublishDate }}
+{{ $dateLayout := $parent.Site.Params.dateLayout | default ":date_long" }}
+<h1 class="page-heading mb-2">{{ $parent.Title }}</h1>
+<div class="inline-flex font-miriam text-sm w-full text-gray-500 hr-text">
+  <a class="opacity-30 hover:opacity-100" href="#">
+    <svg class="w-[24px] pr-1 inline" aria-hidden="true" viewBox="0 0 50 50" focusable="false">
+      <use href="#link"></use>
+    </svg>
+  </a>
+  {{ $parent.PublishDate | time.Format $dateLayout }}
+</div>
+
+<article class="article-prose">
+  {{ $parent.Content }}
+</article>
+
+{{ range $updates }}
+  {{ $anchor_id := .PublishDate.Format "2006-01-02" | safeURL }}
+  <h2 id="{{ $anchor_id }}" class="inline-flex font-miriam text-sm w-full text-gray-500 hr-text pt-4 -mt-4">
+    <a class="opacity-30 hover:opacity-100" href="#{{ $anchor_id }}">
+      <svg class="w-[24px] pr-1 inline" aria-hidden="true" viewBox="0 0 50 50" focusable="false">
+        <use href="#link"></use>
+      </svg>
+    </a>
+    {{ .PublishDate | time.Format $dateLayout }}
+  </h2>
+  <article class="article-prose">
+    {{ .Content }}
+  </article>
+{{ end }}

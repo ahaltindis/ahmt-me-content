@@ -1,0 +1,70 @@
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  {{ hugo.Generator }}
+  <link rel="canonical" href="{{ .Permalink }}" />
+
+  {{ if .IsHome }}
+    {{ with .Site.Params.homeMetaContent }}
+      <meta name="description" content="{{ . | plainify }}">
+    {{ end }}
+  {{ else }}
+    {{ $summary := trim (.Summary | plainify | htmlUnescape) "\n\r"
+      | default .Title }}
+    <meta name="description" content="{{ $summary }}">
+  {{ end }}
+
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ "apple-touch-icon.png" | absLangURL }}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ "favicon-32x32.png" | absLangURL }}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ "favicon-16x16.png" | absLangURL }}">
+  <link rel="manifest" href="{{ "site.webmanifest" | absLangURL }}">
+  <link rel="mask-icon" href="{{ "safari-pinned-tab.svg" | absLangURL }}" color="#000000">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="theme-color" content="#ffffff">
+
+  {{ template "_internal/opengraph.html" . }}
+  {{- with $.Params.imageOriginalPath }}<meta property="og:image" content="{{ $.Site.Params.cdnUrl }}/{{ . }}"/>{{ end -}}
+
+  {{ template "_internal/twitter_cards.html" . }}
+
+  {{ with (templates.Defer (dict "key" "global")) }}
+    {{ $t := debug.Timer "tailwindcss" }}
+    {{ $templateStyles := resources.Get "css/template-styles.css" }}
+    {{ with $templateStyles | resources.ExecuteAsTemplate "css/styles.css" . }}
+      {{ $opts := dict
+        "inlineImports" true
+        "optimize" (not hugo.IsDevelopment)
+      }}
+      {{ with . | css.TailwindCSS $opts }}
+        {{ if hugo.IsDevelopment }}
+          <link rel="stylesheet" href="{{ .RelPermalink }}" />
+        {{ else }}
+          {{ with . | minify | fingerprint }}
+            <link
+              rel="stylesheet"
+              href="{{ .RelPermalink }}"
+              integrity="{{ .Data.Integrity }}"
+              crossorigin="anonymous" />
+          {{ end }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+    {{ $t.Stop }}
+  {{ end }}
+
+  {{ range .Site.Params.customCss }}
+    <link rel="stylesheet" href="{{ . | relURL }}">
+  {{ end }}
+
+  {{ $pageTitle := .Title }}
+  {{ if (eq $pageTitle "") }}
+  {{ $pageTitle = .Parent.Title }}
+  {{ end }}
+  {{ $title := print $pageTitle " | " .Site.Title }}
+  {{ if .IsHome }}
+    {{ $title = .Site.Title }}
+  {{ end }}
+  <title>{{ $title }}</title>
+</head>

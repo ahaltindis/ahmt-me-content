@@ -1,0 +1,113 @@
+{{ define "main" }}
+{{ $isProjectsHome := (eq .CurrentSection .FirstSection)}}
+<main id="main">
+  {{ if $isProjectsHome }}
+    <!-- Start with the all projects in the current language -->
+    {{ $all_projects := .Pages }}
+
+    {{ range .Site.Home.Translations }}
+      <!-- Find all projects in other languages (only parent project pages) -->
+      {{ $other_langs := where .Site.Pages "Section" "eq" "projects" }}
+      {{ $other_langs = where $other_langs ".IsSection" "eq" true }}
+      {{ $other_langs = where $other_langs ".Ancestors.Len" "gt" 1 }}
+
+      <!-- Merge them if they are not available in the current language -->
+      {{ $all_projects = $all_projects | lang.Merge $other_langs }}
+    {{ end }}
+
+    <h1 class="page-heading">{{ .Title }}</h1>
+
+    <article class="article-prose">
+      {{ .Content }}
+    </article>
+
+    <h2 class="text-xl font-miriam mt-8">{{ T "recent_projects" }}</h2>
+    {{ $mixed_parent_and_subpages := append .RegularPagesRecursive .Pages }}
+    {{ $seen_parent_pages := slice }}
+    {{ range $mixed_parent_and_subpages.ByPublishDate.Reverse }}
+      {{ $is_subpage := .Parent.InSection . }}
+      {{ $len_subpages := .Pages | len }}
+      {{ $parent := .Parent }}
+      {{ if not $is_subpage }}
+        {{ $parent = . }}
+      {{ end }}
+
+      {{ if or (gt $len_subpages 0) (in $seen_parent_pages $parent.RelPermalink ) }}
+        {{ continue }}
+      {{ end }}
+      {{ $seen_parent_pages = $seen_parent_pages | append $parent.RelPermalink }}
+
+      {{ $cover_img := $parent.Resources.Get "cover.jpeg" }}
+      {{ if eq $cover_img nil }}
+        {{ $cover_img = resources.Get "images/project_placeholder.png" }}
+      {{ end }}
+      {{ $cover_img = $cover_img.Resize "140x140 q100" }}
+
+      {{ $project_date := substr ($parent.PublishDate | time.Format ":date_long") 2 }}
+      {{ if eq $parent.Lang "en" }}
+        {{ $project_date = replaceRE ` [\d]{2},` "" ($parent.PublishDate | time.Format ":date_long") }}
+      {{ end }}
+
+      {{ $all_updates := slice $parent }}
+      {{ $all_updates = $all_updates | append $parent.Pages }}
+      <div class="w-full flex my-6">
+        <div class="h-36 flex flex-col">
+          <div class="h-32 w-36 bg-cover text-center " style="background-image: url('{{ $cover_img.RelPermalink }}')" title="{{ $parent.Title }}">
+          </div>
+          <div class="text-center text-sm pt-1 text-gray-800">
+            {{ $project_date }}
+          </div>
+        </div>
+        <div class="bg-white px-4 flex flex-col justify-between leading-normal">
+          <div class="mb-8">
+            <div class="text-gray-900 font-bold mb-2">
+              <a href="{{ $parent.RelPermalink }}">{{ $parent.Title }}</a>
+            </div>
+            {{ range last 3 $all_updates.ByPublishDate }}
+              {{ $update_anchor := .PublishDate.Format "2006-01-02" | safeURL }}
+              <p class="text-gray-700 text-sm pb-1">
+                <a href="{{ print $parent.RelPermalink `#` $update_anchor }}" class="font-semibold pr-1">{{ .PublishDate.Format "2006-01-02" }}</a>
+                {{ .Plain | safeHTML | truncate 120 }}
+              </p>
+            {{ end }}
+          </div>
+        </div>
+      </div>
+    {{ end }}
+
+    <h2 class="text-xl font-miriam mt-8">{{ T "all_projects" }}</h2>
+    <ul class="mt-6">
+      {{ range $all_projects }}
+        {{ $is_other_lang := false }}
+        {{ $post_link := .RelPermalink }}
+        {{ $li_class := "mb-4" }}
+        {{ $title_a_prop := "" }}
+        {{ $title_a_img := "" }}
+        {{ if ne .Language $.Site.Language }}
+          {{ $is_other_lang = true }}
+          {{ $post_link = .Permalink }}
+          {{ $li_class = print $li_class " opacity-60" }}
+          {{ $title_a_prop = `target="_blank" rel="noopener"` }}
+          {{ $ext_img := "images/icon-arrow-external.svg" | relURL }}
+          {{ $title_a_img = print `<img class="absolute h-3 w-3 mt-2 ml-[3px] inline-block" src="` $ext_img `" />` }}
+        {{ end }}
+        <li class="{{ $li_class }}">
+          <div class="flex">
+            <div class="font-mono leading-8 text-gray-700 min-w-max">
+              <span>{{ .PublishDate.Format "2006-01-02" }}</span>
+            </div>
+            <div class="ml-5">
+              {{ if $is_other_lang }}[{{ .Language }}]{{ end }}
+              <a href="{{ $post_link }}" class="border-b-[1px] border-b-black" title="{{ .Title }}" {{ $title_a_prop | safeHTMLAttr }}>
+                <span class="font-bold">{{ .Title }}</span>{{ $title_a_img | safeHTML }}
+              </a>
+            </div>
+          </div>
+        </li>
+      {{ end }}
+    </ul>
+  {{ else }}
+    {{ partial "projects/project-detail.html" . }}
+  {{ end }}
+</main>
+{{ end }}

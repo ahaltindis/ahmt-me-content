@@ -1,0 +1,38 @@
+- id: skip_to_content
+  translation: içeriğe atla
+- id: nav_main_navigation
+  translation: Ana Yönlendirme
+- id: nav_button_menu
+  translation: Menü
+- id: dark_theme
+  translation: "gece modu:"
+- id: table_of_contents
+  translation: İçindekiler
+- id: publish_date
+  translation: "Yayın tarihi:"
+- id: last_updated
+  translation: "Son güncelleme:"
+- id: tags
+  translation: "Etiketler:"
+- id: aria_label_tags
+  translation: etiketler
+- id: search_placeholder
+  translation: Başlıklarda ara...
+- id: search_aria_label
+  translation: Başlıklarda ara
+- id: read_more
+  translation: Devamını oku
+- id: figure
+  translation: Şekil
+- id: dict_all_entries
+  translation: bu başlıktaki tüm girdiler
+- id: categories
+  translation: Kategoriler
+- id: total_til_notes_so_far
+  translation: Şu ana kadar {{ . }} yazı oldu ve devam ediyor..
+- id: recent_til
+  translation: Son Notlar
+- id: all_projects
+  translation: Tüm Projeler
+- id: recent_projects
+  translation: Yakın Zamanda Uğraştıklarım

@@ -1,0 +1,27 @@
+{{ define "main" }}
+{{ $isTILHome := (eq .CurrentSection .FirstSection)}}
+<main id="main">
+  <h1 class="page-heading mb-2">{{ .Title }}</h1>
+  {{ $totalNotes := len .RegularPagesRecursive }}
+
+  {{ if $isTILHome }}
+  <ul class="flex flex-wrap">
+    {{ range sort .Pages }}
+    <li class="after:content-['·'] last:after:content-[''] after:inline-block after:pl-2 pr-3 mb-3">
+      <a href="{{ .RelPermalink }}" class="underline">{{ .Title }} ({{ len .Pages }})</a>
+    </li>
+    {{ end }}
+  </ul>
+  {{ end }}
+
+  {{ if $isTILHome }}
+  <h2 class="text-xl font-miriam mt-8 -mb-2">{{ T "recent_til" }}</h2>
+  {{ partial "til/summary-list.html" (first 5 .RegularPagesRecursive.ByPublishDate.Reverse) }}
+  {{ end }}
+
+  {{ if (not $isTILHome) }}
+  {{ partial "til/summary-list.html" .Pages.ByPublishDate.Reverse }}
+  {{ end }}
+
+</main>
+{{ end }}

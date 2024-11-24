@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    @font-face {
+        font-family: 'Miriam Libre';
+        src: url('{{ "css/fonts/miriamlibre-bold.woff2" | relURL }}') format('woff2'), url('{{ "css/fonts/miriamlibre-bold.woff" | relURL }}') format('woff');
+        font-weight: bold;
+        font-style: normal;
+        font-display: swap;
+    }
+
+    @font-face {
+        font-family: 'SourceSans3';
+        src: url('{{ "css/fonts/SourceSans3-Regular.ttf.woff2" | relURL }}') format('woff2');
+        font-style: normal;
+        font-display: swap;
+    }
+
+    a {
+        cursor: pointer;
+        text-decoration: none;
+    }
+
+    a:hover {
+        @apply text-red border-red;
+    }
+
+    .hide-on-scroll {
+        animation: hide 1.01s cubic-bezier(0,1,0,1);
+        animation-play-state: paused;
+        animation-delay: calc(var(--scroll) * -1s);
+    }
+
+    .hide-on-scroll:hover, .hide-on-scroll:focus-within {
+        animation: none;
+    }
+
+    @keyframes hide {
+        to {
+            opacity: 0;
+        }
+    }
+}
+
+@layer components {
+    .page-heading {
+        @apply text-xl xl:text-2xl font-miriam
+    }
+
+    .article-prose {
+        @apply prose dark:prose-invert prose-a:text-rose-950 prose-a:no-underline prose-a:font-semibold font-sourcesans max-w-2xl
+    }
+
+    .gallery-image {
+        @apply border-b-4 border-transparent cursor-pointer opacity-60
+    }
+
+    .gallery-image-selected {
+        @apply border-black opacity-100 cursor-default !important
+    }
+
+    .gallery-image-hover {
+        @apply hover:border-red hover:opacity-100
+    }
+
+    .hr-text {
+      display: flex;
+      align-items: center;
+    }
+
+    .hr-text::before {
+      content: '';
+      flex: 1;
+      border-bottom: 1px dashed #6b7280;
+    }
+
+    .hr-text::after {
+      content: '↴';
+      padding-top: 5px;
+      font-size: large;
+    }
+
+    .hr-text:not(:empty)::before {
+      margin-right: .5em;
+    }
+}
+
+@layer utilities {
+    .clip-polygon {
+        clip-path: polygon(0% 0%, 90% 0%, 100% 50%, 90% 100%, 0% 100%);
+    }
+
+    .display-none {
+        display: none;
+    }
+
+    .display-unset {
+        display: unset;
+    }
+}

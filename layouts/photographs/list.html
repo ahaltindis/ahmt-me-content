@@ -1,0 +1,23 @@
+{{ define "main" }}
+<main id="main">
+  <h1 class="page-heading">{{ .Title }}</h1>
+  <article class="article-prose">
+    {{ .Content }}
+  </article>
+  <div>
+    <div class="grid grid-cols-3 lg:gap-6 -mx-6 md:mx-0">
+      {{ range $.Site.Data.photographs }}
+      {{ if not .hidden }}
+      {{ with $.Site.GetPage .slug }}
+      <div class="hover:border-b-4 hover:border-black hover:-mb-1" tabindex="0">
+        <a href="{{ .RelPermalink }}">
+          <img src="{{ $.Site.Params.cdnUrl }}/{{ .Params.imagePreviewPath }}" alt="{{ .Params.body }}">
+        </a>
+      </div>
+      {{ end }}
+      {{ end }}
+      {{ end }}
+    </div>
+  </div>
+</main>
+{{ end }}

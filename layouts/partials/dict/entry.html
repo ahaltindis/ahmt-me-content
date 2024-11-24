@@ -1,0 +1,12 @@
+{{ with .Scratch.Get "Title" }}
+  <h4 class="title">{{ . }}</h4>
+{{ end }}
+<div class="entry">
+  {{ .Content | markdownify }}
+</div>
+<div class="entry-meta">
+  <span class="author">ahmet</span>
+  {{ $publishDate := .PublishDate }}
+  <a href="{{ .RelPermalink }}" class="date">{{ $publishDate | time.Format "02.01.2006 15:04" }}{{ with .Lastmod }}{{ if gt . $publishDate }}~{{ .
+    | time.Format "02.01.2006 15:04" }}{{ end }}{{ end }}</a>
+</div>

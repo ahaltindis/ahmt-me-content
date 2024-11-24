@@ -1,0 +1,9 @@
+{{ define "main" }}
+<main id="main">
+  {{ partial "dict/title.html" . }}
+  <div class="dict-container">
+    {{ partial "dict/sidebar.html" . }}
+    {{ partial "dict/single-content.html" . }}
+  </div>
+</main>
+{{ end }}

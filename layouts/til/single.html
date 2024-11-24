@@ -1,0 +1,22 @@
+{{ define "main" }}
+  <main id="main">
+    <h1 class="page-heading mb-2">
+      {{ .Title }}
+      <a class="ml-3 text-xs border-2 border-black py-[2px] px-1 align-middle" href="{{ .Parent.RelPermalink }}">{{ .Parent.Title }}</a>
+    </h1>
+    <div class="font-miriam text-sm text-gray-500">
+      {{ $dateLayout := $.Site.Params.dateLayout | default ":date_long" }}
+      {{ $publishDate := .PublishDate }}
+      {{ .PublishDate | time.Format $dateLayout }}
+    </div>
+    <article class="article-prose">
+      {{ .Content }}
+    </article>
+
+    {{ with .Lastmod }}
+    {{ if gt . $publishDate }}
+    <p class="text-sm text-gray-500"><i>{{ T "last_updated" }} {{ . | time.Format $dateLayout }}</i></p>
+    {{ end }}
+    {{ end }}
+  </main>
+{{ end }}

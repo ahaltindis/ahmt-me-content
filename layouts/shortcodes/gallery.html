@@ -1,0 +1,41 @@
+{{/*
+  Usage:
+  {{< gallery
+    "piknik_alani.jpg::Sarımsaklı Barajı piknik alanı"
+    "sarimsakli_baraji.jpg::Sarımsaklı Barajı manzarası"
+    "rota.jpg::Sarımsaklı Barajı'na giderken takip ettiğimiz rota"
+    "cem_ve_caner.jpg::Sürünün küçük çobanları Cem ve Caner"
+    "yusuf_ve_ben.jpg::Yusuf ve ben"
+  >}}
+*/}}
+
+{{/* I wonder if I'd ever need to come here to change this to actual random value */}}
+{{ $gallery_id := print .Params | md5 }}
+
+{{ $first_param := index .Params 0 }}
+{{ $first_arg := split $first_param "::" }}
+{{ $first_img_src := index $first_arg 0 }}
+{{ $first_img_title := index $first_arg 1 }}
+
+<div class="grid gap-4">
+  <figure class="mt-4 mb-0 justify-self-center" role="group" aria-describedby="{{ $gallery_id }}_caption">
+    <img id="{{ $gallery_id }}_image" class="max-h-[70vh] max-w-full rounded-lg m-0" src="{{ $first_img_src }}" />
+    <figcaption id="{{ $gallery_id }}_caption" class="font-light text-sm mt-2 ml-1 text-center">
+      {{ $first_img_title| markdownify }}
+    </figcaption>
+  </figure>
+
+  <div id="{{ $gallery_id }}_previews" class="grid grid-cols-{{ len .Params }} gap-4">
+  {{ range $index, $param := .Params }}
+    {{ $arg := split $param "::" }}
+    {{ $img_src := index $arg 0 }}
+    {{ $img_title := index $arg 1 }}
+    <img
+      class="max-h-32 max-w-full rounded-lg justify-self-center bg-slate-200 mt-0 gallery-image gallery-image-hover {{ if eq $index 0 }} gallery-image-selected {{ end }}"
+      src="{{ $img_src }}"
+      alt="{{ $img_title | markdownify}}"
+      onclick="changeGalleryImage(this, {{ $gallery_id }});"
+    />
+  {{ end }}
+  </div>
+</div>

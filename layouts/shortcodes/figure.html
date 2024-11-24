@@ -1,0 +1,30 @@
+{{ $src := .Get "src" }}
+{{ $title := .Get "title" }}
+{{ $mode := .Get "mode" }}
+{{ $options := .Get "options" }}
+{{ $numberedTitle := .Get "numberedTitle" | default false }}
+{{ $withLink := .Get "withLink" | default false }}
+
+{{ $original := .Page.Resources.GetMatch (printf "*%s*" $src) }}
+{{ $new := "" }}
+
+{{ if eq $mode "Fit" }}
+  {{ $new = $original.Fit $options }}
+{{ else if eq $mode "Fill" }}
+  {{ $new = $original.Fill $options }}
+{{ else if eq $mode "Resize" }}
+  {{ $new = $original.Resize $options }}
+{{ else }}
+  {{ $new = $original }}
+{{ end }}
+
+<div class="grid gap-4">
+  <figure class="justify-self-center my-4" role="group" aria-describedby="caption-{{ $title | md5 }}">
+    {{ if $withLink }}<a href="{{ $original.RelPermalink }}" class="img-link">{{ end }}
+      <img class="max-h-[70vh] max-w-full rounded-lg m-0" src="{{ $new.RelPermalink }}">
+    {{ if $withLink }}</a>{{ end }}
+    <figcaption id="caption-{{ $title | md5 }}" class="font-light text-sm mt-2 ml-1 text-center">
+      {{if $numberedTitle }}<span class="title">{{ T "figure" }}</span>{{ end }}{{ $title | markdownify }}
+    </figcaption>
+  </figure>
+</div>

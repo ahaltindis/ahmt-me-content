@@ -1,0 +1,7 @@
+<div class="dict-sidebar {{ if (ne .CurrentSection .FirstSection) }}hidable{{ end }}">
+  <ul class="dict-entries-list" id="list">
+    {{ range .FirstSection.Pages.ByPublishDate }}
+    <li><a href="{{ .RelPermalink }}">{{ .Title }}<span class="side">{{ len .Pages }}</span></a></li>
+    {{ end }}
+  </ul>
+</div>

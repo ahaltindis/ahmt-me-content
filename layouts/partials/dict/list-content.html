@@ -1,0 +1,14 @@
+<div class="dict-content {{ if (eq .CurrentSection .FirstSection) }}hidable{{ end }}">
+  {{ if (eq .CurrentSection .FirstSection) }}
+    <!-- add random entries -->
+  {{ else }}
+    {{ range $index, $entry := .Pages.ByPublishDate }}
+      {{ if (eq $index 0) }}
+        {{ .Scratch.Set "Title" .Parent.Title }}
+      {{ else }}
+        {{ .Scratch.Set "Title" ""}}
+      {{ end }}
+      {{ partial "dict/entry.html" $entry }}
+    {{ end }}
+  {{ end }}
+</div>

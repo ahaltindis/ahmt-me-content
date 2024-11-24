@@ -1,0 +1,15 @@
+<ul class="mt-6">
+    {{ range . }}
+    <li class="mb-5">
+        <div class="flex">
+            <div class="font-mono leading-8 text-gray-700 min-w-max">
+                <span>{{ .PublishDate.Format "2006-01-02"}}</span>
+            </div>
+            <div class="ml-5">
+                <a class="border-b-[1px] border-b-black" href="{{ .RelPermalink }}">{{ .Title }}</a>
+                <a class="ml-3 text-xs border-2 border-black py-[2px] px-1" href="{{ .Parent.RelPermalink }}">{{ .Parent.Title }}</a>
+            </div>
+        </div>
+    </li>
+    {{ end }}
+</ul>

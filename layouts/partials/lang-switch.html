@@ -1,0 +1,29 @@
+{{ $langsToShow := slice }}
+
+{{ $currentContent := . }}
+{{ if $currentContent.IsTranslated }}
+  {{ range $currentContent.Translations }}
+    {{ $langsToShow = $langsToShow | append . }}
+  {{ end }}
+{{ end }}
+
+{{ range $.FirstSection.Translations }}
+  {{ $otherTranslation := .}}
+  {{ $skip := false }}
+  {{ range $currentContent.Translations }}
+    {{ if eq .Language $otherTranslation.Language }}
+    {{ $skip = true }}
+    {{ end }}
+  {{ end }}
+  {{ if and (eq $skip false) (.Site.Params.showLangSwitchAlways | default false) }}
+    {{ $langsToShow = $langsToShow | append . }}
+  {{ end }}
+{{ end }}
+
+<div class="overflow-auto min-w-max mx-auto md:mx-0 {{ with not (.Scratch.Get "hideNavOnSmall") }} mt-6 {{ end }}">
+  <ul>
+    {{ range $langsToShow }}
+    <li><a class="flex flex-nowrap px-6 py-2" href="{{ .Permalink }}">[ {{ lower .Language.LanguageName }} ]</a></li>
+    {{ end }}
+  </ul>
+</div>
