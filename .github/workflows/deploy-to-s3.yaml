@@ -32,7 +32,9 @@ jobs:
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: '0.139.2'
+          # use 0.136.5 until actions-hugo@v2 supports withdeploy option.
+          # https://github.com/peaceiris/actions-hugo/pull/659/files
+          hugo-version: '0.136.5'
       - name: Hugo Build
         run: hugo
       - name: Hugo Deploy
